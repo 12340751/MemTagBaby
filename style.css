@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: #0e0e0e;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 40px;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+/* обёртка */
+.china-wrapper {
+    position: relative;
+    width: 140px;
+    height: 140px;
+}
+
+/* кнопка Китая */
+.china-btn {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    cursor: pointer;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+}
+
+/* ВЗРЫВ */
+.explosion {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(255,255,255,1) 0%,
+        rgba(255,200,0,0.9) 30%,
+        rgba(255,0,0,0.8) 55%,
+        rgba(0,0,0,0) 70%
+    );
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* активный взрыв */
+.explode {
+    animation: boom 0.6s ease-out forwards;
+}
+
+@keyframes boom {
+    0% {
+        transform: translate(-50%, -50%) scale(0.2);
+        opacity: 1;
+    }
+    70% {
+        transform: translate(-50%, -50%) scale(1.6);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(2.2);
+        opacity: 0;
+    }
+}
+
+/* красивая квадратная кнопка */
+button {
+    width: 120px;
+    height: 38px;
+    background: linear-gradient(135deg, #ff2a2a, #b80000);
+    color: white;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    filter: brightness(1.2);
+}
